@@ -11,7 +11,6 @@ public class CrystalCastle {
         return index;
     }
 
-
     public void addAva(int nRows, int nCols, int nJumps,  int consecutiveJumps, TileType[][] map) {
         Ava ava = new Ava(nRows, nCols, nJumps, consecutiveJumps, map);
         this.avas[this.index] = ava;
@@ -27,5 +26,4 @@ public class CrystalCastle {
         }
         return res;
     }
-
 }
