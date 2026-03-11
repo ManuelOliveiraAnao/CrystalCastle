@@ -23,12 +23,16 @@ public class Main {
                 String[] parts2 = in.readLine().split(" ");
 
                 for (int k = 0; k < col; k++) {
-                    map[j][k] = TileType.valueOf(parts2[k]);
+                    //is it necessary to be case-insensitive? if so, .toUpperCase()
+                    map[j][k] = TileType.fromC(parts2[k].charAt(0));
                 }
             }
-
             game.addAva(row, col, consecutive, jumps, map);
+        }
 
+        int[] result = game.solve();
+        for (int i : result) {
+            System.out.println(i);
         }
     }
 }

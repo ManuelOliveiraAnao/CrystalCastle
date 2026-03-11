@@ -22,4 +22,7 @@ public class Ava {
         this.map = map;
     }
 
+    public int solve(){
+        return 0;
+    }
 }
