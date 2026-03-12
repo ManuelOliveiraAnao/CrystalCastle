@@ -1,28 +1,27 @@
 public class Ava {
-    //current row
-    int row;
-    //current column
-    int col;
-    int nJumps;
-    int consecutiveJumps;
-    //total number of rows
-    int nRows;
-    //total number of columns
-    int nCols;
-    TileType[][] map;
+    private final int nRows;
+    private final int nCols;
 
-    public Ava(int nRows, int nCols, int nJumps,  int consecutiveJumps, TileType[][] map) {
-        this.row = 0;
-        this.col = 0;
-        this.nJumps = nJumps;
-        this.consecutiveJumps = consecutiveJumps;
+    private final int maxConsecutiveJumps;
+    private final int maxTotalJumps;
+
+    private final TileType[][] map;
+
+    private static final int MOD = 1000000007;
+
+    public Ava(int nRows, int nCols, int maxConsecutiveJumps, int maxTotalJumps, TileType[][] map) {
         this.nRows = nRows;
         this.nCols = nCols;
-
+        this.maxConsecutiveJumps = maxConsecutiveJumps;
+        this.maxTotalJumps = maxTotalJumps;
         this.map = map;
     }
 
-    public int solve(){
+
+    public int solve() {
+
+        long[][][][] dp = new long[nRows][nCols][maxTotalJumps + 1][maxConsecutiveJumps + 1];
+
         return 0;
     }
 }
