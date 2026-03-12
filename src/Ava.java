@@ -17,11 +17,61 @@ public class Ava {
         this.map = map;
     }
 
+    private void processMove(int r, int c, int jumps, int consecutiveJumps, MoveType move, long[][][][] state) {
+        int nextR = r + move.getDr();
+        int nextC = c + move.getDc();
 
-    public int solve() {
+        if (nextR < 0 || nextR >= nRows || nextC < 0 || nextC >= nCols || map[nextR][nextC] == TileType.QUICKSAND) {
+            return;
+        }
 
-        long[][][][] dp = new long[nRows][nCols][maxTotalJumps + 1][maxConsecutiveJumps + 1];
+        TileType currentTile = map[r][c];
+        if (currentTile == TileType.NO_JUMP && move.isJump()) return;
+        if (currentTile == TileType.NO_DIAGONAL_JUMP && move.isDiagonal()) return;
 
-        return 0;
+        int nextJumps = jumps;
+        int nextConsec = 0;
+
+        if (move.isJump()) {
+            if (jumps + 1 > maxTotalJumps || consecutiveJumps + 1 > maxConsecutiveJumps) {
+                return;
+            }
+            nextJumps = jumps + 1;
+            nextConsec = consecutiveJumps + 1;
+        }
+
+        state[nextR][nextC][nextJumps][nextConsec] = (state[nextR][nextC][nextJumps][nextConsec] + state[r][c][jumps][consecutiveJumps]) % MOD;
+    }
+
+
+    public long solve() {
+        long[][][][] state = new long[nRows][nCols][maxTotalJumps + 1][maxConsecutiveJumps + 1];
+        state[0][0][0][0] = 1;
+
+        for (int i = 0; i < nRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+                if (map[i][j] == TileType.QUICKSAND) continue;
+
+                for (int jmps = 0; jmps <= maxTotalJumps; jmps++) {
+                    for (int cons = 0; cons <= maxConsecutiveJumps; cons++) {
+
+
+                        if (state[i][j][jmps][cons] > 0) {
+                            for (MoveType moveType : MoveType.values()) {
+                                processMove(i, j, jmps, cons, moveType, state);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        long total = 0;
+        for (int k = 0; k <= maxTotalJumps; k++) {
+            for (int l = 0; l <= maxConsecutiveJumps; l++) {
+                total = (total + state[nRows - 1][nCols - 1][k][l]) % MOD;
+            }
+        }
+        return total;
     }
 }

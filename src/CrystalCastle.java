@@ -18,8 +18,8 @@ public class CrystalCastle {
     }
 
     //int function to resolve the problem
-    public int[] solve(){
-        int[] res = new int[getIndex()];
+    public long[] solve(){
+        long[] res = new long[getIndex()];
 
         for (int i = 0; i < this.getIndex(); i++) {
             res[i] = avas[i].solve();

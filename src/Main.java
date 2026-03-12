@@ -29,8 +29,8 @@ public class Main {
             game.addAva(row, col, consecutiveJps, totalJps, map);
         }
 
-        int[] result = game.solve();
-        for (int i : result) {
+        long[] result = game.solve();
+        for (long i : result) {
             System.out.println(i);
         }
     }
