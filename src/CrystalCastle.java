@@ -1,5 +1,5 @@
 public class CrystalCastle {
-    private Ava[] avas;
+    private final Ava[] avas;
     private int index;
 
     public CrystalCastle(int t) {
@@ -18,8 +18,8 @@ public class CrystalCastle {
     }
 
     //int function to resolve the problem
-    public long[] solve(){
-        long[] res = new long[getIndex()];
+    public int[] solve(){
+        int[] res = new int[getIndex()];
 
         for (int i = 0; i < this.getIndex(); i++) {
             res[i] = avas[i].solve();

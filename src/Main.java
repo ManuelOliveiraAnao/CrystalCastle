@@ -23,14 +23,14 @@ public class Main {
 
                 for (int k = 0; k < col; k++) {
                     //is it necessary to be case-insensitive? if so, .toUpperCase()
-                    map[j][k] = TileType.fromC(parts2[k].charAt(0));
+                    map[j][k] = TileType.fromC(parts2[k].toUpperCase().charAt(0));
                 }
             }
             game.addAva(row, col, consecutiveJps, totalJps, map);
         }
 
-        long[] result = game.solve();
-        for (long i : result) {
+        int[] result = game.solve();
+        for (int i : result) {
             System.out.println(i);
         }
     }
