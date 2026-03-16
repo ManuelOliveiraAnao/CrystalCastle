@@ -10,6 +10,8 @@ public class Ava {
 
     private static final int MOD = 1000000007;
 
+    private static final MoveType[] ALL_MOVES = MoveType.values();
+
     public Ava(int nRows, int nCols, int maxConsecutiveJumps, int maxTotalJumps, TileType[][] map) {
         this.nRows = nRows;
         this.nCols = nCols;
@@ -54,9 +56,8 @@ public class Ava {
 
                 for (int jmps = 0; jmps <= maxTotalJumps; jmps++) {
                     for (int cons = 0; cons <= maxConsecutiveJumps; cons++) {
-
                         if (state[i][j][jmps][cons] > 0) {
-                            for (MoveType moveType : MoveType.values()) {
+                            for (MoveType moveType : ALL_MOVES) {
                                 processMove(i, j, jmps, cons, moveType, state);
                             }
                         }

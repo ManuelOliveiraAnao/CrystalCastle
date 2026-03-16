@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CrystalCastle.iml" filepath="$PROJECT_DIR$/CrystalCastle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CrystalCastle.iml" filepath="$PROJECT_DIR$/.idea/CrystalCastle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/SRC1.iml" filepath="$PROJECT_DIR$/src/SRC1.iml" />
     </modules>
   </component>
 </project>

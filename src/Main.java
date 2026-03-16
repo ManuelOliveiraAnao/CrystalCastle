@@ -7,14 +7,14 @@ public class Main {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
         int t = Integer.parseInt(in.readLine());
-        CrystalCastle game = new CrystalCastle(t);
+        int[] results = new int[t];
 
         for (int i = 0; i < t; i++) {
             String[] parts = in.readLine().split(" ");
             int row = Integer.parseInt(parts[0]);
             int col = Integer.parseInt(parts[1]);
-            int consecutiveJmps = Integer.parseInt(parts[2]);
-            int totalJmps = Integer.parseInt(parts[3]);
+            int consecutiveJumps = Integer.parseInt(parts[2]);
+            int totalJumps = Integer.parseInt(parts[3]);
 
             TileType[][] map = new TileType[row][col];
 
@@ -24,11 +24,11 @@ public class Main {
                     map[j][k] = TileType.toTType(line.charAt(k));
                 }
             }
-            game.addAva(row, col, consecutiveJmps, totalJmps, map);
+            Ava ava = new Ava(row, col, consecutiveJumps, totalJumps, map);
+            results[i] = ava.solve();
         }
 
-        int[] result = game.solve();
-        for (int i : result) {
+        for (int i : results) {
             System.out.println(i);
         }
     }

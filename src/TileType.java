@@ -18,10 +18,12 @@ public enum TileType {
     }
 
     public static TileType toTType(char c) throws  IllegalArgumentException {
-        for (TileType t : values()) {
-            if (t.c == c)
-                return t;
-        }
-        throw new IllegalArgumentException("No such tile type: " + c);
+        return switch (c) {
+            case '.' -> NORMAL;
+            case 'X' -> NO_DIAGONAL_JUMP;
+            case 'J' -> NO_JUMP;
+            case '#' -> QUICKSAND;
+            default -> throw new IllegalArgumentException("No such tile type: " + c);
+        };
     }
 }
