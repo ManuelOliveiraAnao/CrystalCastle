@@ -19,11 +19,9 @@ public class Main {
             TileType[][] map = new TileType[row][col];
 
             for (int j = 0; j < row; j++) {
-                String[] parts2 = in.readLine().split(" ");
-
+                String line = in.readLine();
                 for (int k = 0; k < col; k++) {
-                    //is it necessary to be case-insensitive? if so, .toUpperCase()
-                    map[j][k] = TileType.fromC(parts2[k].toUpperCase().charAt(0));
+                    map[j][k] = TileType.fromC(line.charAt(k));
                 }
             }
             game.addAva(row, col, consecutiveJps, totalJps, map);
