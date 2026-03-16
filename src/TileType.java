@@ -13,11 +13,11 @@ public enum TileType {
 
     private final char c;
 
-    TileType(char c){
+    TileType(char c) {
         this.c = c;
     }
 
-    public static TileType fromC(char c){
+    public static TileType toTType(char c) throws  IllegalArgumentException {
         for (TileType t : values()) {
             if (t.c == c)
                 return t;

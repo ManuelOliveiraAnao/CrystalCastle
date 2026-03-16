@@ -1,4 +1,5 @@
 public class Ava {
+
     private final int nRows;
     private final int nCols;
 
@@ -18,8 +19,8 @@ public class Ava {
     }
 
     private void processMove(int r, int c, int jumps, int consecutiveJumps, MoveType move, int[][][][] state) {
-        int nextR = r + move.getDr();
-        int nextC = c + move.getDc();
+        int nextR = r + move.getDRows();
+        int nextC = c + move.getDCols();
 
         if (nextR < 0 || nextR >= nRows || nextC < 0 || nextC >= nCols || map[nextR][nextC] == TileType.QUICKSAND)
             return;
@@ -43,12 +44,9 @@ public class Ava {
         state[nextR][nextC][nextJumps][nextConsec] %= MOD;
     }
 
-
     public int solve() {
         int[][][][] state = new int[nRows][nCols][maxTotalJumps + 1][maxConsecutiveJumps + 1];
         state[0][0][0][0] = 1;
-
-        //Ver caso base em que estou na primeira linha. Há uma maneira de chegar às casas da primeira linha.
 
         for (int i = 0; i < nRows; i++) {
             for (int j = 0; j < nCols; j++) {

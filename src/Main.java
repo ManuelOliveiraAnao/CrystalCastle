@@ -13,18 +13,18 @@ public class Main {
             String[] parts = in.readLine().split(" ");
             int row = Integer.parseInt(parts[0]);
             int col = Integer.parseInt(parts[1]);
-            int consecutiveJps = Integer.parseInt(parts[2]);
-            int totalJps = Integer.parseInt(parts[3]);
+            int consecutiveJmps = Integer.parseInt(parts[2]);
+            int totalJmps = Integer.parseInt(parts[3]);
 
             TileType[][] map = new TileType[row][col];
 
             for (int j = 0; j < row; j++) {
                 String line = in.readLine();
                 for (int k = 0; k < col; k++) {
-                    map[j][k] = TileType.fromC(line.charAt(k));
+                    map[j][k] = TileType.toTType(line.charAt(k));
                 }
             }
-            game.addAva(row, col, consecutiveJps, totalJps, map);
+            game.addAva(row, col, consecutiveJmps, totalJmps, map);
         }
 
         int[] result = game.solve();
