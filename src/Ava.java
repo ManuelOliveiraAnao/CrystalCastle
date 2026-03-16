@@ -48,6 +48,8 @@ public class Ava {
         int[][][][] state = new int[nRows][nCols][maxTotalJumps + 1][maxConsecutiveJumps + 1];
         state[0][0][0][0] = 1;
 
+        //Ver caso base em que estou na primeira linha. Há uma maneira de chegar às casas da primeira linha.
+
         for (int i = 0; i < nRows; i++) {
             for (int j = 0; j < nCols; j++) {
                 if (map[i][j] == TileType.QUICKSAND) continue;
