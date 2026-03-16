@@ -1,4 +1,5 @@
 public class CrystalCastle {
+
     private final Ava[] avas;
     private int index;
 
@@ -17,7 +18,12 @@ public class CrystalCastle {
         index++;
     }
 
-    //int function to resolve the problem
+
+
+    /**
+     * int function to resolve the problem
+     * @return int vector with the number of paths each Ava can take
+     */
     public int[] solve(){
         int[] res = new int[getIndex()];
 
